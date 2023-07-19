@@ -10,19 +10,18 @@ from typing import List  # noqa: F401
 from widgets import init_widgets_list, init_widgets_screen1, init_widgets_screen2
 
 from preferences import colors, mod, terminal, browser
-from sh import setxkbmap, grep, awk
+import subprocess
+
 
 def toggle_keyboard_layout():
-    layout = (
-        awk(
-            grep("setxkbmap", _in=setxkbmap("-query")),
-            "{print $2}"
-        ).strip()
-    )
-    if layout == "us":
-        lazy.spawn("setxkbmap gr")()
+    output = subprocess.check_output(['setxkbmap', '-query']).decode()
+    layout_line = next(line for line in output.splitlines() if 'layout' in line)
+    layout = layout_line.split()[1]
+
+    if layout == 'us':
+        subprocess.run(['setxkbmap', 'gr'])
     else:
-        lazy.spawn("setxkbmap us")()
+        subprocess.run(['setxkbmap', 'us'])
 
 # My screen are placed in reverse order physically (:
 def move_window_to_screen_group_at_left(qtile):
@@ -48,7 +47,8 @@ keys = [
     Key([mod], "v", lazy.spawn("pavucontrol"), desc="Audio Controll"),
     Key([mod], "s", lazy.spawn("spotify"), desc="Spotify"),
     Key([mod], "d", lazy.spawn("discord"), desc="Discord"),
-    Key([mod], "BackSpace", lazy.function(toggle_keyboard_layout)),
+    # To avoid passing qtile to the function, we use lambda for style points (:
+    Key([mod], "BackSpace", lazy.function(lambda qtile: toggle_keyboard_layout())),
 
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Screenshot"),
 
