@@ -9,7 +9,7 @@ from typing import List  # noqa: F401
 
 from widgets import init_widgets_list, init_widgets_screen1, init_widgets_screen2
 
-from preferences import colors, mod, terminal, browser
+from preferences import colors, mod, terminal, browser, secondary_browser
 import subprocess
 
 
@@ -44,11 +44,12 @@ keys = [
     # The essentials
     Key([mod], "Return", lazy.spawn(terminal), desc="Launches My Terminal"),
     Key([mod], "b", lazy.spawn(browser), desc="Bravebrowser"),
+    Key([mod, "shift"], "b", lazy.spawn(secondary_browser), desc="Firefox"),
     Key([mod], "v", lazy.spawn("pavucontrol"), desc="Audio Controll"),
     Key([mod], "s", lazy.spawn("spotify"), desc="Spotify"),
     Key([mod], "d", lazy.spawn("discord"), desc="Discord"),
     # To avoid passing qtile to the function, we use lambda for style points (:
-    Key([mod], "BackSpace", lazy.function(lambda qtile: toggle_keyboard_layout())),
+    Key([mod], "BackSpace", lazy.function(lambda _: toggle_keyboard_layout())),
 
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Screenshot"),
 
@@ -161,24 +162,22 @@ dgroups_key_binder = simple_key_binder("mod4")
 
 layout_theme = {
     "border_width": 2,
-    # "margin": 10,
+    "margin": 10,
     "border_focus": "da8548",
     "border_normal": "1D2330",
 }
 
 layouts = [
-    # layout.MonadWide(**layout_theme),
+    layout.MonadWide(**layout_theme),
     # layout.Bsp(**layout_theme),
     # layout.Stack(stacks=2, **layout_theme),
     # layout.Columns(**layout_theme),
-    # layout.RatioTile(**layout_theme),
-    # layout.Tile(shift_windows=True, **layout_theme),
-    # layout.VerticalTile(**layout_theme),
+    layout.Tile(shift_windows=True, **layout_theme),
+    layout.VerticalTile(**layout_theme),
     # layout.Matrix(**layout_theme),
     # layout.Zoomy(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2),
     layout.RatioTile(**layout_theme),
     layout.TreeTab(
         font="JetBrainsMono",

@@ -2,6 +2,7 @@
 mod = "mod4"
 terminal = "alacritty"
 browser = "brave-browser"
+secondary_browser = "firefox"
 colors = [["#282c34", "#282c34"],
           ["#1c1f24", "#1c1f24"],
           ["#dfdfdf", "#dfdfdf"],
