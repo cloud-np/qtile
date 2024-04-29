@@ -46,6 +46,7 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Bravebrowser"),
     Key([mod, "shift"], "b", lazy.spawn(secondary_browser), desc="Firefox"),
     Key([mod], "v", lazy.spawn("pavucontrol"), desc="Audio Controll"),
+    Key([mod, "shift"], "v", lazy.spawn("blueman-manager"), desc="Bluetooth Manager"),
     Key([mod], "s", lazy.spawn("spotify"), desc="Spotify"),
     Key([mod], "d", lazy.spawn("discord"), desc="Discord"),
     # To avoid passing qtile to the function, we use lambda for style points (:
