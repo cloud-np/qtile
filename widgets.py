@@ -8,9 +8,9 @@ from qtile_extras.widget.decorations import BorderDecoration
 
 def init_widgets_list():
     widgets_list = [
-        widget.Sep(linewidth=0, padding=6, foreground=colors[2], background=colors[0]),
+        # widget.Sep(linewidth=0, padding=6, foreground=colors[2], background=colors[0]),
         widget.Image(
-            filename="~/.config/qtile/icons/python-white.png",
+            filename="~/.config/qtile/icons/logo.png",
             scale="False",
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal)},
         ),
@@ -64,7 +64,7 @@ def init_widgets_list():
         widget.Sep(linewidth=0, padding=6, foreground=colors[0], background=colors[0]),
         widget.Net(
             interface="enp6s0",
-            format="Net: {down} ↓↑ {up}",
+            format="🌐 {down} ↓↑ {up}",
             foreground=colors[3],
             background=colors[0],
             padding=5,
@@ -82,7 +82,7 @@ def init_widgets_list():
             foreground=colors[4],
             background=colors[0],
             threshold=90,
-            fmt="Temp: {}",
+            fmt="🌡 {}",
             padding=5,
             decorations=[
                 BorderDecoration(
@@ -121,8 +121,8 @@ def init_widgets_list():
         widget.Memory(
             foreground=colors[9],
             background=colors[0],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + " -e htop")},
-            fmt="Mem: {}",
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(terminal + " -e btop")},
+            fmt="💾  {}",
             padding=5,
             decorations=[
                 BorderDecoration(
@@ -137,7 +137,7 @@ def init_widgets_list():
         widget.Volume(
             foreground=colors[7],
             background=colors[0],
-            fmt="Vol: {}",
+            fmt="🎧 {}",
             padding=5,
             decorations=[
                 BorderDecoration(
@@ -152,7 +152,7 @@ def init_widgets_list():
         widget.KeyboardLayout(
             foreground=colors[8],
             background=colors[0],
-            fmt="Keyboard: {}",
+            fmt="⌨️  {}",
             padding=5,
             decorations=[
                 BorderDecoration(

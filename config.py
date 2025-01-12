@@ -46,6 +46,7 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Bravebrowser"),
     Key([mod, "shift"], "b", lazy.spawn(secondary_browser), desc="Firefox"),
     Key([mod], "v", lazy.spawn("pavucontrol"), desc="Audio Controll"),
+    Key([mod], "g", lazy.spawn("lutris"), desc="Gaming/Lutris"),
     Key([mod, "shift"], "v", lazy.spawn("blueman-manager"), desc="Bluetooth Manager"),
     Key([mod], "s", lazy.spawn("spotify"), desc="Spotify"),
     Key([mod], "d", lazy.spawn("discord"), desc="Discord"),
@@ -147,13 +148,12 @@ groups = [
     Group("DEV", layout="monadtall"),
     Group("WWW", layout="monadtall"),
     Group("SYS", layout="monadtall"),
-    Group("SYS", layout="monadtall"),
-    Group("DOC", layout="monadtall"),
-    Group("VBOX", layout="monadtall"),
     Group("CHAT", layout="monadtall"),
     Group("MUS", layout="monadtall"),
-    Group("VID", layout="monadtall"),
     Group("GFX", layout="floating"),
+    Group("7", layout="monadtall"),
+    Group("8", layout="monadtall"),
+    Group("9", layout="monadtall"),
 ]
 
 # Allow MODKEY+[0 through 9] to bind to groups, see https://docs.qtile.org/en/stable/manual/config/groups.html

@@ -1,5 +1,4 @@
-# Sets mod key to SUPER/WINDOWS
-mod = "mod4"
+mod = "mod4" # Sets mod key to SUPER/WINDOWS
 terminal = "alacritty"
 browser = "brave-browser"
 secondary_browser = "firefox"
