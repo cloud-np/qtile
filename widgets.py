@@ -8,7 +8,7 @@ from qtile_extras.widget.decorations import BorderDecoration
 
 def init_widgets_list():
     widgets_list = [
-        # widget.Sep(linewidth=0, padding=6, foreground=colors[2], background=colors[0]),
+        widget.Sep(linewidth=0, padding=6, foreground=colors[2], background=colors[0]),
         widget.Image(
             filename="~/.config/qtile/icons/logo.png",
             scale="False",
@@ -134,20 +134,22 @@ def init_widgets_list():
             ],
         ),
         widget.Sep(linewidth=0, padding=6, foreground=colors[0], background=colors[0]),
-        widget.Volume(
-            foreground=colors[7],
-            background=colors[0],
-            fmt="🎧 {}",
-            padding=5,
-            decorations=[
-                BorderDecoration(
-                    colour=colors[7],
-                    border_width=[0, 0, 2, 0],
-                    padding_x=5,
-                    padding_y=None,
-                )
-            ],
-        ),
+        # Could be introducing this type of log:
+        # May  2 23:15:30 cloud-np /usr/libexec/gdm-x-session[2370]: amixer: Unable to find simple control 'Master',0
+        # widget.Volume(
+        #     foreground=colors[7],
+        #     background=colors[0],
+        #     fmt="🎧 {}",
+        #     padding=5,
+        #     decorations=[
+        #         BorderDecoration(
+        #             colour=colors[7],
+        #             border_width=[0, 0, 2, 0],
+        #             padding_x=5,
+        #             padding_y=None,
+        #         )
+        #     ],
+        # ),
         widget.Sep(linewidth=0, padding=6, foreground=colors[0], background=colors[0]),
         widget.KeyboardLayout(
             foreground=colors[8],
